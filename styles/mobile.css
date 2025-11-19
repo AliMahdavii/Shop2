@@ -6,7 +6,7 @@
     }
 
      .nav {
-        display: none;   /* فعلاً مخفی */
+        display: none;
     }
 
     .header {
@@ -21,17 +21,13 @@
         font-size: 1.6rem;
     }
 
-    .grid {
+    .product-grid {
         grid-template-columns: 1fr;
     }
 
     .item {
         padding: 1.5rem;
         gap: 1.2rem;
-    }
-
-    .product-card img {
-        height: 18rem;
     }
 
     .product-card h3 {
