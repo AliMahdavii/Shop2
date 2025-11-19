@@ -34,6 +34,7 @@ body {
     border: 0.2px solid #999;
     border-radius: 1.5rem;
     background: #fff;
+    position: fixed;
 }
 
 .logo {
@@ -143,42 +144,41 @@ body {
 }
 
 .hero {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 4rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;  /* چپ بزرگ‌تر */
     gap: 3rem;
+    padding: 4rem 5rem;
+    align-items: stretch;  /* ستون‌ها هم‌ارتفاع */
 }
 
-.hero .right .hero-text {
-    width: 100%;
-    background: #b1ada1c6;
-    border-radius: 1rem;
-    padding: 2rem 1.5rem;
-    margin-top: 28rem;
-}
-
-.hero .right .hero-text h1 {
-    font-size: 3.2rem;
-    margin-bottom: 3.5rem;
-}
-
-.hero .right .hero-text p {
-    font-size: 1.6rem;
-    margin-bottom: 2rem;
+.hero .right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .hero .right .hero-img img {
-    width: 40rem;
+    width: 100%;
     border-radius: 1rem;
-    margin-right: 1rem;
+    object-fit: cover;
+}
+
+.hero .right .hero-text {
+    background: #b1ada1c6;
+    border-radius: 1rem;
+    padding: 2rem 2rem;
+}
+
+.hero .right .hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
 }
 
 .hero .left .hero-img img {
-    width: 80rem;
-    max-height: 100rem;
+    width: 100%;
+    height: 100%;
     border-radius: 1rem;
-    margin-right: 3rem;
+    object-fit: cover;
 }
 
 .categories h2 {
