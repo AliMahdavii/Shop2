@@ -4,7 +4,6 @@ const searchIcon = document.querySelector(".fa-magnifying-glass");
 const overlay = document.querySelector(".search-overlay");
 const closeSearch = document.querySelector(".close-search");
 const searchInput = document.getElementById("searchInput");
-const resultsBox = document.querySelector(".search-results");
 
 searchIcon.addEventListener("click", () => {
     overlay.style.display = "flex";
@@ -17,35 +16,32 @@ closeSearch.addEventListener("click", () => {
     searchInput.value = "";
 });
 
-searchInput.addEventListener("input", () => {
-    const text = searchInput.value.trim();
-
-    if (text.length < 2) {
-        resultsBox.style.display = "none";
-        return;
+searchInput.addEventListener("keydown", e => {
+    if(e.key === "Enter"){
+        window.location.href = "search.html?query" + encodeURIComponent(searchInput.value);
     }
-
-    const filtered = products.filter(p =>
-        p.name.includes(text) || p.category.includes(text)
-    );
-
-    resultsBox.innerHTML = "";
-
-    filtered.forEach(p => {
-        resultsBox.innerHTML += `
-            <div class="product-card">
-                <img src="${p.mainImage}" alt="${p.name}">
-                <h3>${p.name}</h3>
-                <p class="price">${p.price.toLocaleString()} تومان</p>
-            </div>
-        `;
-    });
-
-    resultsBox.style.display = "block";
 });
 
-
+const tabs = document.querySelectorAll(".filter-tabs button");
 const productGrid = document.querySelector(".product-grid");
+
+tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        const filter = tab.dataset.filter;
+
+        if (filter === "all") {
+            renderProducts(products);
+        } else {
+            const filtered = products.filter(p => p.category === filter);
+            renderProducts(filtered);
+        }
+    });
+});
+
 
 function renderProducts(list) {
     productGrid.innerHTML = "";
@@ -55,6 +51,7 @@ function renderProducts(list) {
             <div class="product-card">
                 <img src="${product.mainImage}" alt="${product.name}">
                 <h3>${product.name}</h3>
+                <h6>${product.category}</h6>
                 <p class="price">${product.price.toLocaleString()} تومان</p>
             </div>
         `;
