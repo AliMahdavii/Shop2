@@ -11,7 +11,7 @@ export const products = [
             "images/1/IMG_1901.AVIF",
             "images/1/IMG_1902.AVIF"
         ],
-        category: "پیراهن",
+        category: "هودی",
         description : "کاپشنی گرم و سبک با طراحی مدرن، مقاوم در برابر سرما و باد. انتخابی عالی برای فصل‌های سرد و استایل‌های اسپرت.",
         id: "1"
     },
