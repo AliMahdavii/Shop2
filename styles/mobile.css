@@ -22,20 +22,37 @@
     }
 
     .hero {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        padding: 2rem;
+        margin-top: 10rem;
     }
 
-    .left .hero-img img {
-        height: auto;
+    .hero .left .hero-img img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hero .right {
+        gap: 1rem;
+    }
+
+    .hero .right .hero-text h1 {
+        font-size: 2rem;
     }
 
     .product-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 1rem;
     }
 
-    .item {
-        padding: 1.5rem;
-        gap: 1.2rem;
+    .product-card {
+        height: 29rem;
+    }
+
+    .product-card img {
+        height: 14rem;
     }
 
     .product-card h3 {
